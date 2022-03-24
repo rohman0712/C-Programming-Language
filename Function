@@ -1,0 +1,131 @@
+//main.c
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+int a[2][2];
+int b[2][2];
+int c[2][2];
+int i,j,k;
+NIMdanNAMA(c);
+inputmatrixA(i,j,&a[i][j]);
+inputmatrixB(i,j,&b[i][j]);
+penjumlahan(i,j,&a[i][j],&b[i][j],&c[i][j]);
+perkalian(i,j,k,&a[i][j],&b[i][j],&c[i][j]);
+return 0;
+}
+
+//function.c
+#include "main.h"
+//NIMdanNAMA.c
+void NIMdanNAMA(char n)
+{
+    printf("\n NIM  = 211110101");
+    printf("\n NAMA = ROHMAN PRABOWO\n\n");
+    return;
+}
+
+//InputMatrixA.c
+void inputmatrixA(int i, int j, int a[i][j])
+{
+    printf(" Input Matrix A = \n");
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            printf(" a [%d,%d] = ",i,j);scanf("%d",&a[i][j]);
+            }
+        }
+        printf("\n\n");
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            printf(" a [%d,%d] = %d ",i,j,a[i][j]);
+            }
+        printf("\n\n");
+        }
+        return;
+}
+//InputMatrixB.c
+void inputmatrixB(int i, int j, int b[i][j])
+{
+    printf(" Input Matrix B = \n");
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            printf(" b [%d,%d] = ",i,j);scanf("%d",&b[i][j]);
+            }
+        }
+        printf("\n\n");
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            printf(" b [%d,%d] = %d ",i,j,b[i][j]);
+            }
+        printf("\n\n");
+        }
+        return;
+}
+//PenjumlahanMatrix.c
+void penjumlahan(int i, int j, int a[i][j], int b[i][j], int c[i][j])
+{
+    printf(" Hasil Penjumlahan Matrix = \n");
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            c[i][j]= a[i][j]+b[i][j];
+            }
+        }
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            printf(" c [%d,%d] = %d ",i,j,c[i][j]);
+            }
+            printf("\n\n");
+        }
+        return;
+}
+//PerkalianMatrix.c
+void perkalian(int i, int j, int k, int a[i][j], int b[i][j], int c[i][j])
+{
+    printf(" Hasil Perkalian Matrix = \n");
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+                c [i][j]=0;
+                for(k=0;k<=1;k++)
+                {
+                c [i][j]= c [i][j] + a[j][k]*b[k][i];
+                }
+            }
+        }
+        for(i=0;i<=1;i++)
+        {
+            for(j=0;j<=1;j++)
+            {
+            printf(" c [%d,%d] = %d ",i,j,c[j][i]);
+            }
+            printf("\n\n");
+        }
+    return;
+}
+
+//header.c
+#ifndef MAIN_H_INCLUDED
+#define MAIN_H_INCLUDED
+
+void NIMdanNAMA(char n);
+void inputmatrixA(int i, int j, int a[i][j]);
+void inputmatrixB(int i, int j, int b[i][j]);
+void penjumlahan(int i, int j, int a[i][j], int b[i][j], int c[i][j]);
+void perkalian(int i, int j, int k, int a[i][j], int b[i][j], int c[i][j]);
+
+#endif // MAIN_H_INCLUDED
